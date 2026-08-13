@@ -88,6 +88,32 @@
     footer{text-align:center;padding:70px 20px;background:#f3ebe2}
     footer .names{font-family:"Cormorant Garamond";font-size:42px}
     footer p{font-size:11px;letter-spacing:.1em;color:var(--muted)}
+
+    .entry-screen{
+      position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;
+      text-align:center;background:var(--bg);overflow:auto;padding:28px 18px;
+      transition:opacity .7s ease,visibility .7s ease;
+    }
+    .entry-screen.hidden{opacity:0;visibility:hidden;pointer-events:none}
+    .entry-screen:before,.entry-screen:after{
+      content:"";position:absolute;border:1px solid rgba(167,131,104,.25);border-radius:50%;
+    }
+    .entry-screen:before{width:360px;height:360px;left:-190px;top:-170px}
+    .entry-screen:after{width:430px;height:430px;right:-220px;bottom:-230px}
+    .entry-card{position:relative;z-index:1;max-width:520px;width:100%;padding:28px 20px}
+    .entry-kicker{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+    .entry-names{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(54px,13vw,88px);line-height:.8;color:#51483f}
+    .entry-names .amp{font-size:.7em}
+    .entry-sub{font-family:"Cormorant Garamond",Georgia,serif;font-size:22px;color:var(--muted);margin:26px 0 20px}
+    .qr-frame{width:170px;height:170px;margin:0 auto 18px;padding:10px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 30px rgba(91,70,50,.08)}
+    .qr-frame img{display:block;width:100%;height:100%;image-rendering:auto}
+    .qr-note{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+    .open-btn{border:1px solid var(--accent);background:var(--accent);color:#fff;padding:12px 24px;font-family:Montserrat,Arial,sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:.2s}
+    .open-btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(91,70,50,.12)}
+    .hero-countdown{margin:28px auto 0;max-width:650px}
+    .hero-countdown .countdown{margin-top:0}
+    .hero-countdown .count-box{background:rgba(255,253,249,.72);backdrop-filter:blur(3px)}
+    .hero-countdown-title{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
     @media(max-width:650px){
       section{padding:62px 16px}
       .events{grid-template-columns:1fr}
@@ -100,6 +126,17 @@
   </style>
 </head>
 <body>
+
+  <div class="entry-screen" id="entryScreen">
+    <div class="entry-card">
+      <div class="entry-kicker">Düğün Davetiyesi</div>
+      <div class="entry-names">Hasret <span class="amp">&amp;</span><br>Alp Emre</div>
+      <div class="entry-sub">Sevgiyle hazırladığımız davetiyemize hoş geldiniz.</div>
+      <div class="qr-frame"><img src="qr-code.png" alt="Hasret ve Alp Emre düğün davetiyesi QR kodu"></div>
+      <div class="qr-note">Davetiyeyi paylaşmak için QR kodu okutabilirsiniz</div>
+      <button class="open-btn" type="button" onclick="openInvitation()">Davetiyeyi Aç</button>
+    </div>
+  </div>
   <header class="hero">
     <div class="floral"></div>
     <div class="hero-inner">
@@ -107,6 +144,15 @@
       <h1>Hasret <span class="amp">&</span><br>Alp Emre</h1>
       <p class="intro">Hayatımızın en güzel gününde, mutluluğumuzu sizlerle paylaşmak için sabırsızlanıyoruz.</p>
       <div class="date">24 — 26 Eylül 2026</div>
+      <div class="hero-countdown">
+        <div class="hero-countdown-title">Büyük güne kalan zaman</div>
+        <div class="countdown" id="countdown">
+          <div class="count-box"><strong id="days">—</strong><span>Gün</span></div>
+          <div class="count-box"><strong id="hours">—</strong><span>Saat</span></div>
+          <div class="count-box"><strong id="minutes">—</strong><span>Dakika</span></div>
+          <div class="count-box"><strong id="seconds">—</strong><span>Saniye</span></div>
+        </div>
+      </div>
       <a class="scroll" href="#etkinlikler">Davetimizi Gör <span>⌄</span></a>
     </div>
   </header>
@@ -151,20 +197,7 @@
     </div>
   </section>
 
-  <section class="countdown-wrap">
-    <div class="container">
-      <div class="section-title">
-        <div class="small">Büyük Güne</div>
-        <h2>Geri Sayım</h2>
-      </div>
-      <div class="countdown" id="countdown">
-        <div class="count-box"><strong id="days">—</strong><span>Gün</span></div>
-        <div class="count-box"><strong id="hours">—</strong><span>Saat</span></div>
-        <div class="count-box"><strong id="minutes">—</strong><span>Dakika</span></div>
-        <div class="count-box"><strong id="seconds">—</strong><span>Saniye</span></div>
-      </div>
-    </div>
-  </section>
+
 
   <footer>
     <div class="names">Hasret & Alp Emre</div>
@@ -172,22 +205,31 @@
   </footer>
 
   <script>
+    function openInvitation(){
+      const entry=document.querySelector('#entryScreen');
+      entry.classList.add('hidden');
+      document.body.style.overflow='auto';
+      setTimeout(()=>entry.remove(),750);
+    }
+    document.body.style.overflow='hidden';
+
     const target = new Date("2026-09-26T20:00:00+03:00").getTime();
     function updateCountdown(){
+      const box=document.querySelector('#countdown');
+      if(!box) return;
       const diff = target - Date.now();
       if(diff <= 0){
-        document.querySelector("#countdown").innerHTML =
-          '<div style="grid-column:1/-1;font-family:Cormorant Garamond;font-size:28px;color:#a78368">Bugün bizim günümüz! ♡</div>';
+        box.innerHTML='<div style="grid-column:1/-1;font-family:Cormorant Garamond;font-size:28px;color:#a78368">Bugün bizim günümüz! ♡</div>';
         return;
       }
       const d=Math.floor(diff/86400000);
       const h=Math.floor((diff%86400000)/3600000);
       const m=Math.floor((diff%3600000)/60000);
       const s=Math.floor((diff%60000)/1000);
-      document.querySelector("#days").textContent=d;
-      document.querySelector("#hours").textContent=String(h).padStart(2,"0");
-      document.querySelector("#minutes").textContent=String(m).padStart(2,"0");
-      document.querySelector("#seconds").textContent=String(s).padStart(2,"0");
+      document.querySelector('#days').textContent=d;
+      document.querySelector('#hours').textContent=String(h).padStart(2,'0');
+      document.querySelector('#minutes').textContent=String(m).padStart(2,'0');
+      document.querySelector('#seconds').textContent=String(s).padStart(2,'0');
     }
     updateCountdown();
     setInterval(updateCountdown,1000);

@@ -1,238 +1,246 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f8f3ed">
-  <meta name="description" content="Hasret & Alp Emre'nin düğün davetiyesi">
-  <title>Hasret & Alp Emre | Düğün Davetiyesi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#fbf7f1;
-      --paper:#fffdf9;
-      --ink:#4f4740;
-      --muted:#8b7d70;
-      --accent:#a78368;
-      --line:#ddcdbd;
-      --soft:#f2e9df;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;background:var(--bg);color:var(--ink);
-      font-family:Montserrat,Arial,sans-serif;font-weight:300;line-height:1.7;
-    }
-    a{color:inherit}
-    .hero{
-      min-height:100svh;display:flex;align-items:center;justify-content:center;
-      text-align:center;position:relative;overflow:hidden;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(167,131,104,.10), transparent 28%),
-        radial-gradient(circle at 90% 80%, rgba(167,131,104,.10), transparent 28%),
-        var(--bg);
-    }
-    .hero:before,.hero:after{
-      content:"";position:absolute;width:260px;height:260px;border:1px solid rgba(167,131,104,.28);
-      border-radius:50%;filter:blur(.1px);
-    }
-    .hero:before{top:-120px;left:-120px}
-    .hero:after{bottom:-130px;right:-130px}
-    .floral{
-      position:absolute;inset:0;pointer-events:none;opacity:.65;
-      background:
-        radial-gradient(ellipse at 8% 15%, transparent 0 20px, rgba(167,131,104,.16) 21px 22px, transparent 23px),
-        radial-gradient(ellipse at 92% 82%, transparent 0 24px, rgba(167,131,104,.16) 25px 26px, transparent 27px);
-    }
-    .hero-inner{position:relative;z-index:1;padding:36px 22px;max-width:760px}
-    .eyebrow{letter-spacing:.28em;text-transform:uppercase;font-size:11px;color:var(--muted);margin-bottom:22px}
-    h1,h2,.script{font-family:"Cormorant Garamond",Georgia,serif}
-    h1{font-size:clamp(62px,14vw,112px);font-weight:500;line-height:.85;margin:0;color:#51483f}
-    .amp{font-style:italic;color:var(--accent);font-size:.72em}
-    .intro{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(21px,4vw,28px);margin:30px auto 22px;max-width:580px}
-    .date{letter-spacing:.18em;font-size:13px;text-transform:uppercase;color:var(--accent)}
-    .scroll{display:inline-block;margin-top:44px;text-decoration:none;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-    .scroll span{display:block;margin-top:7px;font-size:18px}
-    section{padding:80px 20px}
-    .container{max-width:920px;margin:auto}
-    .section-title{text-align:center;margin-bottom:38px}
-    .section-title .small{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted)}
-    .section-title h2{font-size:48px;font-weight:500;line-height:1;margin:10px 0}
-    .section-title p{max-width:620px;margin:0 auto;color:var(--muted);font-size:14px}
-    .events{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-    .card{
-      background:var(--paper);border:1px solid var(--line);padding:34px 26px;text-align:center;
-      position:relative;box-shadow:0 10px 30px rgba(91,70,50,.04)
-    }
-    .card:before{content:"";position:absolute;inset:8px;border:1px solid rgba(221,205,189,.55);pointer-events:none}
-    .card>*{position:relative}
-    .card .day{font-family:"Cormorant Garamond";font-size:58px;line-height:1;color:var(--accent)}
-    .card .month{font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin-top:5px}
-    .card h3{font-family:"Cormorant Garamond";font-size:30px;font-weight:600;margin:24px 0 8px}
-    .card .time{font-size:13px;color:var(--accent);letter-spacing:.08em}
-    .card p{font-size:13px;color:var(--muted);margin:10px 0 20px}
-    .map{
-      display:inline-block;padding:9px 16px;border:1px solid var(--line);text-decoration:none;font-size:10px;
-      letter-spacing:.12em;text-transform:uppercase;transition:.2s
-    }
-    .map:hover{background:var(--soft)}
-    .story{text-align:center;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .story p{max-width:670px;margin:0 auto;font-family:"Cormorant Garamond";font-size:25px;line-height:1.5}
-    .countdown-wrap{text-align:center}
-    .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:650px;margin:30px auto 0}
-    .count-box{padding:20px 8px;background:var(--paper);border:1px solid var(--line)}
-    .count-box strong{display:block;font-family:"Cormorant Garamond";font-size:42px;font-weight:500;color:var(--accent);line-height:1}
-    .count-box span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-    footer{text-align:center;padding:70px 20px;background:#f3ebe2}
-    footer .names{font-family:"Cormorant Garamond";font-size:42px}
-    footer p{font-size:11px;letter-spacing:.1em;color:var(--muted)}
-
-    .entry-screen{
-      position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;
-      text-align:center;background:var(--bg);overflow:auto;padding:28px 18px;
-      transition:opacity .7s ease,visibility .7s ease;
-    }
-    .entry-screen.hidden{opacity:0;visibility:hidden;pointer-events:none}
-    .entry-screen:before,.entry-screen:after{
-      content:"";position:absolute;border:1px solid rgba(167,131,104,.25);border-radius:50%;
-    }
-    .entry-screen:before{width:360px;height:360px;left:-190px;top:-170px}
-    .entry-screen:after{width:430px;height:430px;right:-220px;bottom:-230px}
-    .entry-card{position:relative;z-index:1;max-width:520px;width:100%;padding:28px 20px}
-    .entry-kicker{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
-    .entry-names{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(54px,13vw,88px);line-height:.8;color:#51483f}
-    .entry-names .amp{font-size:.7em}
-    .entry-sub{font-family:"Cormorant Garamond",Georgia,serif;font-size:22px;color:var(--muted);margin:26px 0 20px}
-    .qr-frame{width:170px;height:170px;margin:0 auto 18px;padding:10px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 30px rgba(91,70,50,.08)}
-    .qr-frame img{display:block;width:100%;height:100%;image-rendering:auto}
-    .qr-note{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
-    .open-btn{border:1px solid var(--accent);background:var(--accent);color:#fff;padding:12px 24px;font-family:Montserrat,Arial,sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:.2s}
-    .open-btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(91,70,50,.12)}
-    .hero-countdown{margin:28px auto 0;max-width:650px}
-    .hero-countdown .countdown{margin-top:0}
-    .hero-countdown .count-box{background:rgba(255,253,249,.72);backdrop-filter:blur(3px)}
-    .hero-countdown-title{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-    @media(max-width:650px){
-      section{padding:62px 16px}
-      .events{grid-template-columns:1fr}
-      .countdown{gap:7px}
-      .count-box{padding:15px 4px}
-      .count-box strong{font-size:31px}
-      .section-title h2{font-size:40px}
-      .story p{font-size:22px}
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hasret & Alp Emre | Düğün Davetiyesi</title>
+<meta name="description" content="Hasret & Alp Emre'nin düğün davetiyesi">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#fbf8f0; --paper:#fffdf8; --ink:#4d433b; --muted:#81756b;
+  --gold:#c8a85b; --gold2:#e6d18b; --line:#e8dfd0; --sage:#8c9a78;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif}
+a{color:inherit}
+button{font:inherit}
+.page{overflow:hidden}
+.serif{font-family:"Cormorant Garamond",serif}
+.cover{
+  min-height:100svh;position:relative;display:flex;align-items:center;justify-content:center;
+  padding:28px;background:
+    radial-gradient(circle at 50% 18%,rgba(255,255,255,.95),transparent 30%),
+    linear-gradient(135deg,#f7f1e5,#fffdf8 52%,#f3ecdf);
+}
+.cover-card{
+  width:min(940px,100%);min-height:min(720px,calc(100svh - 56px));position:relative;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  border:1px solid #ded3c2;background:rgba(255,253,248,.78);
+  box-shadow:0 22px 70px rgba(91,72,48,.10);padding:70px 24px 54px;
+}
+.cover-card:before,.cover-card:after{
+  content:"";position:absolute;inset:12px;border:1px solid rgba(200,168,91,.38);pointer-events:none
+}
+.eyebrow{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#9b8b79}
+.names{font-size:clamp(68px,10vw,126px);line-height:.72;margin:30px 0 28px;font-weight:500;color:#51463d}
+.names span{display:block;font-size:.55em;line-height:1.1;color:var(--gold);margin:10px 0}
+.cover-date{font-size:12px;letter-spacing:.2em;color:#907e6c}
+.open-btn{
+  margin-top:42px;border:1px solid var(--gold);background:#fffaf0;color:#625445;
+  padding:14px 28px;border-radius:999px;cursor:pointer;letter-spacing:.08em;text-transform:uppercase;font-size:11px
+}
+.open-btn:hover{background:#f8efd9}
+.flower{position:absolute;width:110px;height:110px;opacity:.92}
+.flower.tl{left:-8px;top:-8px}.flower.tr{right:-8px;top:-8px;transform:scaleX(-1)}
+.flower.bl{left:-8px;bottom:-8px;transform:scaleY(-1)}.flower.br{right:-8px;bottom:-8px;transform:scale(-1)}
+.flower svg{width:100%;height:100%}
+.hero-flower-row{display:flex;gap:12px;margin-top:18px;opacity:.9}
+.mini-daisy{width:28px;height:28px;position:relative}
+.mini-daisy:before{content:"";position:absolute;inset:2px;border-radius:50%;
+background:radial-gradient(circle at 50% 4%,#fff 0 5px,transparent 6px),radial-gradient(circle at 96% 50%,#fff 0 5px,transparent 6px),radial-gradient(circle at 50% 96%,#fff 0 5px,transparent 6px),radial-gradient(circle at 4% 50%,#fff 0 5px,transparent 6px)}
+.mini-daisy:after{content:"";position:absolute;width:7px;height:7px;background:#e0bf55;border-radius:50%;left:10px;top:10px}
+.main{display:none}
+.main.visible{display:block}
+.top{
+  padding:78px 20px 70px;text-align:center;background:var(--paper);position:relative
+}
+.top .small{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#9a8c7b}
+.top h1{font-size:clamp(48px,8vw,92px);line-height:.85;margin:20px 0 12px;font-weight:500}
+.top .sub{max-width:550px;margin:auto;color:var(--muted);font-size:14px;line-height:1.8}
+.countdown{
+  width:min(760px,calc(100% - 32px));margin:38px auto 0;padding:22px 14px;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:10px
+}
+.count .num{font-family:"Cormorant Garamond";font-size:44px;line-height:1;color:#66564a}
+.count .label{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#9b8d80;margin-top:7px}
+.section{padding:80px 20px}
+.section.alt{background:#f5efe4}
+.container{max-width:980px;margin:auto}
+.section-head{text-align:center;margin-bottom:42px}
+.section-head .small{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#a18f7b}
+.section-head h2{font:500 clamp(38px,6vw,62px)/.95 "Cormorant Garamond";margin:12px 0;color:#51463d}
+.section-head p{max-width:590px;margin:auto;color:var(--muted);line-height:1.8;font-size:14px}
+.events{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.event{
+  background:var(--paper);border:1px solid var(--line);padding:28px 22px;text-align:center;position:relative
+}
+.event:before{content:"✽";color:var(--gold);font-size:18px}
+.event .date{font:600 25px "Cormorant Garamond";margin-top:12px}
+.event .time{color:var(--gold);font-size:13px;letter-spacing:.08em;margin:7px 0 14px}
+.event h3{font:600 25px "Cormorant Garamond";margin:0 0 7px}
+.event p{font-size:12px;color:var(--muted);line-height:1.7;margin:0}
+.event a{display:inline-block;margin-top:18px;text-decoration:none;font-size:10px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--gold)}
+.timeline{max-width:680px;margin:auto;position:relative}
+.timeline:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--line)}
+.tl-item{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin:0 0 30px}
+.tl-item:nth-child(even) .tl-copy{grid-column:2;text-align:left}
+.tl-item:nth-child(odd) .tl-copy{grid-column:1;text-align:right}
+.tl-dot{position:absolute;left:50%;transform:translateX(-50%);width:13px;height:13px;border:3px solid var(--cream);background:var(--gold);border-radius:50%;margin-top:8px}
+.tl-copy{padding:0 12px}.tl-copy .when{font-size:10px;letter-spacing:.15em;color:var(--gold);text-transform:uppercase}
+.tl-copy h3{font:600 28px "Cormorant Garamond";margin:7px 0 3px}.tl-copy p{font-size:12px;color:var(--muted);margin:0;line-height:1.7}
+.photo-box{
+  max-width:760px;margin:auto;background:var(--paper);border:1px solid var(--line);padding:28px;
+  display:grid;grid-template-columns:190px 1fr;gap:34px;align-items:center
+}
+.qr{background:#fff;border:1px solid var(--line);padding:10px;width:190px;height:190px}
+.qr img{width:100%;height:100%;display:block}
+.photo-box h3{font:600 36px "Cormorant Garamond";margin:0 0 8px}
+.photo-box p{font-size:13px;color:var(--muted);line-height:1.8;margin:0 0 16px}
+.note{font-size:10px;color:#9a8b7b}
+.rsvp{background:#4f473f;color:#fffaf0;text-align:center;padding:74px 20px}
+.rsvp h2{font:500 clamp(42px,6vw,62px) "Cormorant Garamond";margin:0 0 12px}
+.rsvp p{color:#d9d0c5;max-width:520px;margin:0 auto;line-height:1.8;font-size:13px}
+footer{text-align:center;padding:38px 20px;background:#eee5d8;color:#8a7c6d;font:500 24px "Cormorant Garamond"}
+@media(max-width:760px){
+  .cover{padding:12px}.cover-card{min-height:calc(100svh - 24px);padding:55px 18px 40px}
+  .names{font-size:70px}.flower{width:86px;height:86px}
+  .countdown{grid-template-columns:repeat(2,1fr);gap:20px;padding:20px 8px}
+  .count .num{font-size:38px}.events{grid-template-columns:1fr}
+  .section{padding:62px 16px}
+  .timeline:before{left:12px}.tl-item{display:block;padding-left:34px;position:relative}
+  .tl-item:nth-child(even) .tl-copy,.tl-item:nth-child(odd) .tl-copy{text-align:left}
+  .tl-dot{left:12px}
+  .photo-box{grid-template-columns:1fr;text-align:center;justify-items:center;padding:22px 16px}
+}
+</style>
 </head>
 <body>
-
-  <div class="entry-screen" id="entryScreen">
-    <div class="entry-card">
-      <div class="entry-kicker">Düğün Davetiyesi</div>
-      <div class="entry-names">Hasret <span class="amp">&amp;</span><br>Alp Emre</div>
-      <div class="entry-sub">Sevgiyle hazırladığımız davetiyemize hoş geldiniz.</div>
-      <div class="qr-frame"><img src="qr-code.png" alt="Hasret ve Alp Emre düğün davetiyesi QR kodu"></div>
-      <div class="qr-note">Davetiyeyi paylaşmak için QR kodu okutabilirsiniz</div>
-      <button class="open-btn" type="button" onclick="openInvitation()">Davetiyeyi Aç</button>
+<div class="page">
+<section class="cover" id="cover">
+  <div class="cover-card">
+    <div class="flower tl">
+      <svg viewBox="0 0 120 120" fill="none">
+        <path d="M8 105C31 76 38 44 85 9" stroke="#8c9a78" stroke-width="2"/>
+        <path d="M33 74c-15-1-23-8-28-19 17-2 26 4 28 19Z" fill="#b2bf9e"/>
+        <path d="M50 54c-13-6-18-15-18-27 15 4 21 12 18 27Z" fill="#a4b18f"/>
+        <g transform="translate(74 22)">
+          <circle cx="0" cy="0" r="8" fill="#e3c35f"/>
+          <g fill="#fff"><ellipse cy="-13" rx="7" ry="13"/><ellipse cy="13" rx="7" ry="13"/><ellipse cx="-13" rx="13" ry="7"/><ellipse cx="13" rx="13" ry="7"/></g>
+        </g>
+      </svg>
     </div>
+    <div class="flower tr"><svg viewBox="0 0 120 120" fill="none"><path d="M8 105C31 76 38 44 85 9" stroke="#8c9a78" stroke-width="2"/><path d="M33 74c-15-1-23-8-28-19 17-2 26 4 28 19Z" fill="#b2bf9e"/><path d="M50 54c-13-6-18-15-18-27 15 4 21 12 18 27Z" fill="#a4b18f"/><g transform="translate(74 22)"><circle cx="0" cy="0" r="8" fill="#e3c35f"/><g fill="#fff"><ellipse cy="-13" rx="7" ry="13"/><ellipse cy="13" rx="7" ry="13"/><ellipse cx="-13" cy="0" rx="13" ry="7"/><ellipse cx="13" cy="0" rx="13" ry="7"/></g></g></svg></div>
+    <div class="flower bl"><svg viewBox="0 0 120 120" fill="none"><path d="M8 105C31 76 38 44 85 9" stroke="#8c9a78" stroke-width="2"/><path d="M33 74c-15-1-23-8-28-19 17-2 26 4 28 19Z" fill="#b2bf9e"/><g transform="translate(74 22)"><circle cx="0" cy="0" r="8" fill="#e3c35f"/><g fill="#fff"><ellipse cy="-13" rx="7" ry="13"/><ellipse cy="13" rx="7" ry="13"/><ellipse cx="-13" cy="0" rx="13" ry="7"/><ellipse cx="13" cy="0" rx="13" ry="7"/></g></g></svg></div>
+    <div class="flower br"><svg viewBox="0 0 120 120" fill="none"><path d="M8 105C31 76 38 44 85 9" stroke="#8c9a78" stroke-width="2"/><path d="M33 74c-15-1-23-8-28-19 17-2 26 4 28 19Z" fill="#b2bf9e"/><g transform="translate(74 22)"><circle cx="0" cy="0" r="8" fill="#e3c35f"/><g fill="#fff"><ellipse cy="-13" rx="7" ry="13"/><ellipse cy="13" rx="7" ry="13"/><ellipse cx="-13" cy="0" rx="13" ry="7"/><ellipse cx="13" cy="0" rx="13" ry="7"/></g></g></svg></div>
+
+    <div class="eyebrow">Düğün Davetiyesi</div>
+    <div class="names serif">Hasret<span>&amp;</span>Alp Emre</div>
+    <div class="hero-flower-row"><i class="mini-daisy"></i><i class="mini-daisy"></i><i class="mini-daisy"></i></div>
+    <div class="cover-date">24 — 26 EYLÜL 2026</div>
+    <button class="open-btn" id="openBtn">Davetiyeyi Aç</button>
   </div>
-  <header class="hero">
-    <div class="floral"></div>
-    <div class="hero-inner">
-      <div class="eyebrow">Düğün Davetiyesi</div>
-      <h1>Hasret <span class="amp">&</span><br>Alp Emre</h1>
-      <p class="intro">Hayatımızın en güzel gününde, mutluluğumuzu sizlerle paylaşmak için sabırsızlanıyoruz.</p>
-      <div class="date">24 — 26 Eylül 2026</div>
-      <div class="hero-countdown">
-        <div class="hero-countdown-title">Büyük güne kalan zaman</div>
-        <div class="countdown" id="countdown">
-          <div class="count-box"><strong id="days">—</strong><span>Gün</span></div>
-          <div class="count-box"><strong id="hours">—</strong><span>Saat</span></div>
-          <div class="count-box"><strong id="minutes">—</strong><span>Dakika</span></div>
-          <div class="count-box"><strong id="seconds">—</strong><span>Saniye</span></div>
+</section>
+
+<main class="main" id="main">
+  <section class="top">
+    <div class="small">Birlikte yeni bir başlangıç</div>
+    <h1 class="serif">Hasret &amp; Alp Emre</h1>
+    <p class="sub">Bu güzel günümüzde mutluluğumuzu sevdiklerimizle paylaşmak için sabırsızlanıyoruz.</p>
+    <div class="countdown" aria-label="Düğüne geri sayım">
+      <div class="count"><div class="num" id="days">00</div><div class="label">Gün</div></div>
+      <div class="count"><div class="num" id="hours">00</div><div class="label">Saat</div></div>
+      <div class="count"><div class="num" id="mins">00</div><div class="label">Dakika</div></div>
+      <div class="count"><div class="num" id="secs">00</div><div class="label">Saniye</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="small">Takvimimize not edin</div>
+        <h2 class="serif">Kutlamalarımız</h2>
+        <p>Üç ayrı güzel an, tek bir büyük mutluluk.</p>
+      </div>
+      <div class="events">
+        <article class="event">
+          <div class="date">24 Eylül 2026</div><div class="time">19:00</div>
+          <h3>Kına Gecesi</h3><p>Milver Bahçe<br>Bayrampaşa · İstanbul</p>
+        </article>
+        <article class="event">
+          <div class="date">26 Eylül 2026</div><div class="time">19:00</div>
+          <h3>Gelin Alma</h3><p>Bayramcı Sapağı<br>Düzce</p>
+        </article>
+        <article class="event">
+          <div class="date">26 Eylül 2026</div><div class="time">20:00</div>
+          <h3>Nikah</h3><p>Royal Park<br>Düzce</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head">
+        <div class="small">26 Eylül · Cumartesi</div>
+        <h2 class="serif">Günün Akışı</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-copy"><div class="when">19:00</div><h3>Gelin Alma</h3><p>Bayramcı Sapağı · Düzce</p></div><span class="tl-dot"></span></div>
+        <div class="tl-item"><div class="tl-copy"><div class="when">20:00</div><h3>Nikah</h3><p>Royal Park · Düzce</p></div><span class="tl-dot"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="small">En güzel anılarımız</div>
+        <h2 class="serif">Bize Bir Fotoğraf Bırakın</h2>
+        <p>Düğünümüzde çektiğiniz fotoğrafları bizimle paylaşmanız bizi çok mutlu eder.</p>
+      </div>
+      <div class="photo-box">
+        <div class="qr"><img src="qr-code.png" alt="Fotoğraf paylaşım QR kodu"></div>
+        <div>
+          <h3 class="serif">📷 Bu karekodu okutun</h3>
+          <p>Telefonunuzdan fotoğraflarınızı bırakabileceğiniz paylaşım alanına yönlendirileceksiniz.</p>
+          <div class="note">Fotoğraf yükleme bağlantısı hazır olduğunda bu QR kod doğrudan yükleme sayfasına bağlanacaktır.</div>
         </div>
       </div>
-      <a class="scroll" href="#etkinlikler">Davetimizi Gör <span>⌄</span></a>
-    </div>
-  </header>
-
-  <section id="etkinlikler">
-    <div class="container">
-      <div class="section-title">
-        <div class="small">Özel Günlerimiz</div>
-        <h2>Birlikte Kutlayalım</h2>
-        <p>Bu güzel başlangıcımızda sizleri de aramızda görmekten mutluluk duyarız.</p>
-      </div>
-
-      <div class="events">
-        <article class="card">
-          <div class="day">24</div>
-          <div class="month">Eylül 2026</div>
-          <h3>Kına Gecesi</h3>
-          <div class="time">19:00</div>
-          <p>Milver Bahçe<br>Bayrampaşa · İstanbul</p>
-          <a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Milver+Bahçe+Bayrampaşa+İstanbul">Haritada Gör</a>
-        </article>
-
-        <article class="card">
-          <div class="day">26</div>
-          <div class="month">Eylül 2026</div>
-          <h3>Düğün Günü</h3>
-          <div class="time">19:00 · Gelin Alma</div>
-          <p>Bayramcı Sapağı<br><br><strong>20:00 · Nikah</strong><br>Royal Park · Düzce</p>
-          <a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Royal+Park+Düzce">Nikah Mekanı</a>
-        </article>
-      </div>
     </div>
   </section>
 
-  <section class="story">
-    <div class="container">
-      <div class="section-title">
-        <div class="small">Davetiye</div>
-        <h2>Sevgiyle...</h2>
-      </div>
-      <p>“Birlikte yazacağımız hayat hikâyesinin ilk sayfasında sizlerin de imzası olsun.”</p>
-    </div>
+  <section class="rsvp">
+    <h2 class="serif">Sizi aramızda görmekten mutluluk duyarız.</h2>
+    <p>Hasret &amp; Alp Emre</p>
   </section>
+  <footer class="serif">Sevgiyle, Hasret &amp; Alp Emre ♡</footer>
+</main>
+</div>
 
+<script>
+const target = new Date("2026-09-26T20:00:00+03:00").getTime();
+function tick(){
+  const diff=Math.max(0,target-Date.now());
+  const d=Math.floor(diff/86400000);
+  const h=Math.floor(diff%86400000/3600000);
+  const m=Math.floor(diff%3600000/60000);
+  const s=Math.floor(diff%60000/1000);
+  document.getElementById("days").textContent=String(d).padStart(2,"0");
+  document.getElementById("hours").textContent=String(h).padStart(2,"0");
+  document.getElementById("mins").textContent=String(m).padStart(2,"0");
+  document.getElementById("secs").textContent=String(s).padStart(2,"0");
+}
+tick();setInterval(tick,1000);
 
-
-  <footer>
-    <div class="names">Hasret & Alp Emre</div>
-    <p>24 — 26 Eylül 2026 · Sevgiyle bekliyoruz</p>
-  </footer>
-
-  <script>
-    function openInvitation(){
-      const entry=document.querySelector('#entryScreen');
-      entry.classList.add('hidden');
-      document.body.style.overflow='auto';
-      setTimeout(()=>entry.remove(),750);
-    }
-    document.body.style.overflow='hidden';
-
-    const target = new Date("2026-09-26T20:00:00+03:00").getTime();
-    function updateCountdown(){
-      const box=document.querySelector('#countdown');
-      if(!box) return;
-      const diff = target - Date.now();
-      if(diff <= 0){
-        box.innerHTML='<div style="grid-column:1/-1;font-family:Cormorant Garamond;font-size:28px;color:#a78368">Bugün bizim günümüz! ♡</div>';
-        return;
-      }
-      const d=Math.floor(diff/86400000);
-      const h=Math.floor((diff%86400000)/3600000);
-      const m=Math.floor((diff%3600000)/60000);
-      const s=Math.floor((diff%60000)/1000);
-      document.querySelector('#days').textContent=d;
-      document.querySelector('#hours').textContent=String(h).padStart(2,'0');
-      document.querySelector('#minutes').textContent=String(m).padStart(2,'0');
-      document.querySelector('#seconds').textContent=String(s).padStart(2,'0');
-    }
-    updateCountdown();
-    setInterval(updateCountdown,1000);
-  </script>
+document.getElementById("openBtn").addEventListener("click",()=>{
+  document.getElementById("cover").style.display="none";
+  document.getElementById("main").classList.add("visible");
+  window.scrollTo({top:0,behavior:"instant"});
+});
+</script>
 </body>
 </html>

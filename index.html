@@ -204,6 +204,19 @@ background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--
 max-width:760px;margin:auto;background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--blush);padding:28px;
 display:grid;grid-template-columns:190px 1fr;gap:34px;align-items:center;
 box-shadow:0 14px 40px rgba(140,154,120,.14);
+position:relative;
+}
+
+.selfie-sticker{
+position:absolute;top:-24px;right:-16px;width:108px;z-index:3;
+background:#fff;padding:5px 5px 16px;
+box-shadow:0 14px 30px rgba(76,58,42,.24),0 2px 6px rgba(76,58,42,.12);
+transform:rotate(8deg);
+}
+.selfie-sticker img{width:100%;display:block;border-radius:2px}
+.selfie-sticker span{
+position:absolute;bottom:1px;left:0;right:0;text-align:center;
+font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:10px;color:#6b5847
 }
 
 .qr{background:#fff;border:1px solid var(--line);padding:10px;width:190px;height:190px}
@@ -241,6 +254,7 @@ footer{text-align:center;padding:38px 20px;background:linear-gradient(180deg,#f1
 .top-photo .corner-flower.tr{top:-13px;right:-13px}
 .top-photo .corner-flower.bl{bottom:-13px;left:-13px}
 .top-photo .corner-flower.br{bottom:-13px;right:-13px}
+.selfie-sticker{width:82px;top:-18px;right:6px}
 }
 </style>
 </head>
@@ -351,10 +365,11 @@ Takviminize Not Edin
 <div class="section-head">
 <div class="section-flourish"><i class="mini-daisy"></i><i class="mini-bloom"></i><i class="mini-daisy"></i></div>
 <div class="small">En güzel anılarımız</div>
-<h2 class="serif">Bize Bir Fotoğraf Bırakın</h2>
+<h2 class="serif">Bize Anlık Bir Fotoğraf Bırakın</h2>
 <p>Bu mutlu günümüzü duyduğunuzda ki anlık tepkilerinizi merak ediyoruz.<br>Güzel bir hatıra için bir selfie 💙</p>
 </div>
 <div class="photo-box">
+<div class="selfie-sticker"><img src="selfie-cizim.jpg" alt="Eğlenceli selfie çizimi"><span>selfie zamanı 🐾</span></div>
 <div class="qr"><img src="qr-code.png" alt="Fotoğraf paylaşım QR kodu"></div>
 <div>
 <h3 class="serif">📷 Bu karekodu okutun</h3>

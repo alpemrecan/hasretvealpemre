@@ -123,11 +123,18 @@ linear-gradient(180deg,var(--paper),#fdf1e4);
 .top h1{font-size:clamp(48px,8vw,92px);line-height:.85;margin:20px 0 12px;font-weight:500}
 .top .sub{max-width:550px;margin:auto;color:var(--muted);font-size:14px;line-height:1.8}
 .top-photo{
-width:150px;height:150px;border-radius:50%;margin:32px auto 6px;position:relative;padding:6px;
-background:linear-gradient(135deg,var(--gold),var(--blush),var(--sage));
-box-shadow:0 16px 36px rgba(76,58,42,.18);
+width:min(260px,72vw);margin:36px auto 10px;position:relative;padding:12px;
+background:linear-gradient(135deg,#fffdf8,#f8ecdf);
+box-shadow:0 20px 48px rgba(76,58,42,.22);
 }
-.top-photo img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid var(--paper)}
+.top-photo:before{content:"";position:absolute;inset:7px;border:1px solid rgba(200,168,91,.55);pointer-events:none}
+.top-photo img{width:100%;aspect-ratio:784/1371;object-fit:cover;display:block;border:1px solid #e3cfc9}
+.top-photo .corner-flower{position:absolute;width:52px;height:52px;z-index:2;opacity:.95}
+.top-photo .corner-flower.tl{top:-20px;left:-20px}
+.top-photo .corner-flower.tr{top:-20px;right:-20px;transform:scaleX(-1)}
+.top-photo .corner-flower.bl{bottom:-20px;left:-20px;transform:scaleY(-1)}
+.top-photo .corner-flower.br{bottom:-20px;right:-20px;transform:scale(-1)}
+.top-photo .corner-flower svg{width:100%;height:100%}
 .countdown{
 width:min(760px,calc(100% - 32px));margin:38px auto 0;padding:22px 14px;
 border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:10px
@@ -229,6 +236,11 @@ footer{text-align:center;padding:38px 20px;background:linear-gradient(180deg,#f1
 .tl-item:nth-child(even) .tl-copy,.tl-item:nth-child(odd) .tl-copy{text-align:left}
 .tl-dot{left:12px}
 .photo-box{grid-template-columns:1fr;text-align:center;justify-items:center;padding:22px 16px}
+.top-photo .corner-flower{width:36px;height:36px}
+.top-photo .corner-flower.tl{top:-13px;left:-13px}
+.top-photo .corner-flower.tr{top:-13px;right:-13px}
+.top-photo .corner-flower.bl{bottom:-13px;left:-13px}
+.top-photo .corner-flower.br{bottom:-13px;right:-13px}
 }
 </style>
 </head>
@@ -278,7 +290,13 @@ footer{text-align:center;padding:38px 20px;background:linear-gradient(180deg,#f1
 <div class="small">Birlikte yeni bir başlangıç</div>
 <h1 class="serif">Hasret &amp; Alp Emre</h1>
 <p class="sub">Bu özel günümüzde sizleri de aramızda görmekten mutluluk duyarız.</p>
-<div class="top-photo"><img src="cocukluk-fotografi.jpg" alt="Hasret ve Alp Emre çocukluk fotoğrafı"></div>
+<div class="top-photo">
+<div class="corner-flower tl"><svg viewBox="0 0 120 120" fill="none"><path d="M8 105C31 76 38 44 85 9" stroke="#8c9a78" stroke-width="2"/><path d="M33 74c-15-1-23-8-28-19 17-2 26 4 28 19Z" fill="#b2bf9e"/><path d="M50 54c-13-6-18-15-18-27 15 4 21 12 18 27Z" fill="#a4b18f"/><g transform="translate(74 22)"><circle cx="0" cy="0" r="8" fill="#e3c35f"/><g fill="#fff"><ellipse cy="-13" rx="7" ry="13"/><ellipse cy="13" rx="7" ry="13"/><ellipse cx="-13" rx="13" ry="7"/><ellipse cx="13" rx="13" ry="7"/></g></g></svg></div>
+<div class="corner-flower tr"><svg viewBox="0 0 120 120" fill="none"><path d="M8 105C31 76 38 44 85 9" stroke="#8c9a78" stroke-width="2"/><path d="M33 74c-15-1-23-8-28-19 17-2 26 4 28 19Z" fill="#b2bf9e"/><path d="M50 54c-13-6-18-15-18-27 15 4 21 12 18 27Z" fill="#a4b18f"/><g transform="translate(74 22)"><circle cx="0" cy="0" r="8" fill="#e08a7d"/><g fill="#fff"><ellipse cy="-13" rx="7" ry="13"/><ellipse cy="13" rx="7" ry="13"/><ellipse cx="-13" cy="0" rx="13" ry="7"/><ellipse cx="13" cy="0" rx="13" ry="7"/></g></g></svg></div>
+<div class="corner-flower bl"><svg viewBox="0 0 120 120" fill="none"><path d="M8 105C31 76 38 44 85 9" stroke="#8c9a78" stroke-width="2"/><path d="M33 74c-15-1-23-8-28-19 17-2 26 4 28 19Z" fill="#b2bf9e"/><g transform="translate(74 22)"><circle cx="0" cy="0" r="8" fill="#b79bc7"/><g fill="#fff"><ellipse cy="-13" rx="7" ry="13"/><ellipse cy="13" rx="7" ry="13"/><ellipse cx="-13" cy="0" rx="13" ry="7"/><ellipse cx="13" cy="0" rx="13" ry="7"/></g></g></svg></div>
+<div class="corner-flower br"><svg viewBox="0 0 120 120" fill="none"><path d="M8 105C31 76 38 44 85 9" stroke="#8c9a78" stroke-width="2"/><path d="M33 74c-15-1-23-8-28-19 17-2 26 4 28 19Z" fill="#b2bf9e"/><g transform="translate(74 22)"><circle cx="0" cy="0" r="8" fill="#e3c35f"/><g fill="#fff"><ellipse cy="-13" rx="7" ry="13"/><ellipse cy="13" rx="7" ry="13"/><ellipse cx="-13" cy="0" rx="13" ry="7"/><ellipse cx="13" cy="0" rx="13" ry="7"/></g></g></svg></div>
+<img src="cocukluk-fotografi.jpg" alt="Hasret ve Alp Emre çocukluk fotoğrafı">
+</div>
 <div class="countdown" aria-label="Düğüne geri sayım">
 <div class="count"><div class="num" id="days">00</div><div class="label">Gün</div></div>
 <div class="count"><div class="num" id="hours">00</div><div class="label">Saat</div></div>

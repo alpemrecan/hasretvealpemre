@@ -122,6 +122,12 @@ linear-gradient(180deg,var(--paper),#fdf1e4);
 .top .small{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#9a8c7b}
 .top h1{font-size:clamp(48px,8vw,92px);line-height:.85;margin:20px 0 12px;font-weight:500}
 .top .sub{max-width:550px;margin:auto;color:var(--muted);font-size:14px;line-height:1.8}
+.top-photo{
+width:150px;height:150px;border-radius:50%;margin:32px auto 6px;position:relative;padding:6px;
+background:linear-gradient(135deg,var(--gold),var(--blush),var(--sage));
+box-shadow:0 16px 36px rgba(76,58,42,.18);
+}
+.top-photo img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid var(--paper)}
 .countdown{
 width:min(760px,calc(100% - 32px));margin:38px auto 0;padding:22px 14px;
 border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:10px
@@ -193,20 +199,6 @@ display:grid;grid-template-columns:190px 1fr;gap:34px;align-items:center;
 box-shadow:0 14px 40px rgba(140,154,120,.14);
 }
 
-/* ---------- photo section with background photo ---------- */
-.photo-section{
-background-image:
-linear-gradient(180deg, rgba(251,243,234,.93), rgba(251,243,234,.86) 38%, rgba(251,243,234,.95) 82%),
-url('cocukluk-fotografi.jpg');
-background-size:cover;
-background-position:center 18%;
-background-repeat:no-repeat;
-}
-.throwback-note{
-display:table;margin:0 auto 34px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;
-font-size:16px;color:#6b5847;background:rgba(255,253,248,.8);padding:9px 24px;border-radius:999px;
-box-shadow:0 8px 22px rgba(76,58,42,.14);border:1px solid rgba(200,168,91,.3);
-}
 .qr{background:#fff;border:1px solid var(--line);padding:10px;width:190px;height:190px}
 .qr img{width:100%;height:100%;display:block}
 .photo-box h3{font:600 36px "Cormorant Garamond";margin:0 0 8px}
@@ -237,7 +229,6 @@ footer{text-align:center;padding:38px 20px;background:linear-gradient(180deg,#f1
 .tl-item:nth-child(even) .tl-copy,.tl-item:nth-child(odd) .tl-copy{text-align:left}
 .tl-dot{left:12px}
 .photo-box{grid-template-columns:1fr;text-align:center;justify-items:center;padding:22px 16px}
-.photo-section{background-position:center 12%}
 }
 </style>
 </head>
@@ -287,6 +278,7 @@ footer{text-align:center;padding:38px 20px;background:linear-gradient(180deg,#f1
 <div class="small">Birlikte yeni bir başlangıç</div>
 <h1 class="serif">Hasret &amp; Alp Emre</h1>
 <p class="sub">Bu özel günümüzde sizleri de aramızda görmekten mutluluk duyarız.</p>
+<div class="top-photo"><img src="cocukluk-fotografi.jpg" alt="Hasret ve Alp Emre çocukluk fotoğrafı"></div>
 <div class="countdown" aria-label="Düğüne geri sayım">
 <div class="count"><div class="num" id="days">00</div><div class="label">Gün</div></div>
 <div class="count"><div class="num" id="hours">00</div><div class="label">Saat</div></div>
@@ -336,7 +328,7 @@ Takviminize Not Edin
 </div>
 </section>
 
-<section class="section photo-section">
+<section class="section">
 <div class="container">
 <div class="section-head">
 <div class="section-flourish"><i class="mini-daisy"></i><i class="mini-bloom"></i><i class="mini-daisy"></i></div>
@@ -344,7 +336,6 @@ Takviminize Not Edin
 <h2 class="serif">Bize Bir Fotoğraf Bırakın</h2>
 <p>Bu mutlu günümüzü duyduğunuzda ki anlık tepkilerinizi merak ediyoruz.<br>Güzel bir hatıra için bir selfie 💙</p>
 </div>
-<div class="throwback-note">demek ki bu güne çok önceden hazırlanıyormuşuz 🤍</div>
 <div class="photo-box">
 <div class="qr"><img src="qr-code.png" alt="Fotoğraf paylaşım QR kodu"></div>
 <div>

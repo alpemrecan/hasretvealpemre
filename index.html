@@ -25,14 +25,18 @@ button{font:inherit}
 /* ---------- floral watermark pattern ---------- */
 .section, .rsvp, footer{position:relative}
 .section:before{
-content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+content:"";position:absolute;inset:0;pointer-events:none;opacity:.75;
 background-image:
-radial-gradient(circle at 6% 12%, rgba(227,169,171,.16) 0 40px, transparent 42px),
-radial-gradient(circle at 94% 20%, rgba(140,154,120,.16) 0 34px, transparent 36px),
-radial-gradient(circle at 12% 88%, rgba(200,168,91,.14) 0 30px, transparent 32px),
-radial-gradient(circle at 90% 82%, rgba(183,155,199,.14) 0 34px, transparent 36px);
+radial-gradient(circle at 6% 12%, rgba(227,169,171,.24) 0 44px, transparent 46px),
+radial-gradient(circle at 94% 20%, rgba(140,154,120,.24) 0 38px, transparent 40px),
+radial-gradient(circle at 12% 88%, rgba(200,168,91,.22) 0 34px, transparent 36px),
+radial-gradient(circle at 90% 82%, rgba(183,155,199,.22) 0 38px, transparent 40px),
+radial-gradient(circle at 50% 96%, rgba(226,131,107,.14) 0 46px, transparent 48px),
+radial-gradient(circle at 30% 4%, rgba(140,154,120,.16) 0 30px, transparent 32px);
 }
 .section > *{position:relative;z-index:1}
+.section-flourish{display:flex;justify-content:center;gap:10px;margin-bottom:16px;opacity:.9}
+.section-flourish .mini-daisy,.section-flourish .mini-bloom{width:22px;height:22px}
 
 .cover{
 min-height:100svh;position:relative;display:flex;align-items:center;justify-content:center;
@@ -106,8 +110,15 @@ background:radial-gradient(circle at 50% 4%,var(--blush) 0 5px,transparent 6px),
 .main{display:none}
 .main.visible{display:block}
 .top{
-padding:78px 20px 70px;text-align:center;background:linear-gradient(180deg,var(--paper),#fdf6ec);position:relative
+padding:78px 20px 70px;text-align:center;position:relative;overflow:hidden;
+background:
+radial-gradient(circle at 8% 15%, rgba(227,169,171,.22), transparent 38%),
+radial-gradient(circle at 92% 10%, rgba(140,154,120,.22), transparent 38%),
+radial-gradient(circle at 15% 92%, rgba(183,155,199,.16), transparent 36%),
+radial-gradient(circle at 88% 90%, rgba(200,168,91,.18), transparent 36%),
+linear-gradient(180deg,var(--paper),#fdf1e4);
 }
+.top .mini-daisy,.top .mini-bloom{position:absolute;pointer-events:none}
 .top .small{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#9a8c7b}
 .top h1{font-size:clamp(48px,8vw,92px);line-height:.85;margin:20px 0 12px;font-weight:500}
 .top .sub{max-width:550px;margin:auto;color:var(--muted);font-size:14px;line-height:1.8}
@@ -177,10 +188,28 @@ background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--
 .tl-copy h3{font:600 28px "Cormorant Garamond";margin:7px 0 3px}.tl-copy p{font-size:12px;color:var(--muted);margin:0;line-height:1.7}
 
 .photo-box{
-max-width:760px;margin:auto;background:var(--paper);border:1px solid var(--line);padding:28px;
+max-width:760px;margin:auto;background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--blush);padding:28px;
 display:grid;grid-template-columns:190px 1fr;gap:34px;align-items:center;
-box-shadow:0 14px 40px rgba(140,154,120,.1);
+box-shadow:0 14px 40px rgba(140,154,120,.14);
 }
+
+/* ---------- throwback polaroid ---------- */
+.throwback{display:flex;justify-content:center;margin:0 0 46px;position:relative}
+.throwback-polaroid{
+width:190px;background:#fffdfa;padding:12px 12px 0;box-shadow:0 20px 44px rgba(76,58,42,.22),0 2px 6px rgba(76,58,42,.1);
+transform:rotate(-5deg);position:relative;
+}
+.throwback-polaroid .frame{overflow:hidden;background:#000}
+.throwback-polaroid img{width:100%;display:block;aspect-ratio:784/1371;object-fit:cover;filter:saturate(1.05) sepia(.06)}
+.throwback-cap{
+font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:15px;color:#6b5847;
+text-align:center;padding:12px 4px 16px;line-height:1.3
+}
+.throwback-tape{
+position:absolute;top:-14px;left:50%;transform:translateX(-50%) rotate(-3deg);width:74px;height:26px;
+background:rgba(230,209,139,.55);border:1px solid rgba(200,168,91,.4);box-shadow:0 3px 8px rgba(0,0,0,.08)
+}
+.throwback .mini-daisy,.throwback .mini-bloom{position:absolute}
 .qr{background:#fff;border:1px solid var(--line);padding:10px;width:190px;height:190px}
 .qr img{width:100%;height:100%;display:block}
 .photo-box h3{font:600 36px "Cormorant Garamond";margin:0 0 8px}
@@ -189,7 +218,11 @@ box-shadow:0 14px 40px rgba(140,154,120,.1);
 
 .rsvp{
 color:#fffaf0;text-align:center;padding:74px 20px;
-background:linear-gradient(135deg,#4f473f,#5c4a45 55%,#4a4638);
+background:
+radial-gradient(circle at 12% 20%, rgba(227,169,171,.22), transparent 40%),
+radial-gradient(circle at 88% 80%, rgba(140,154,120,.22), transparent 40%),
+radial-gradient(circle at 85% 15%, rgba(200,168,91,.16), transparent 36%),
+linear-gradient(135deg,#4f473f,#5c4a45 55%,#4a4638);
 }
 .rsvp h2{font:500 clamp(42px,6vw,62px) "Cormorant Garamond";margin:0 0 12px}
 .rsvp p{color:#e6d7d1;max-width:520px;margin:0 auto;line-height:1.8;font-size:13px}
@@ -207,6 +240,7 @@ footer{text-align:center;padding:38px 20px;background:linear-gradient(180deg,#f1
 .tl-item:nth-child(even) .tl-copy,.tl-item:nth-child(odd) .tl-copy{text-align:left}
 .tl-dot{left:12px}
 .photo-box{grid-template-columns:1fr;text-align:center;justify-items:center;padding:22px 16px}
+.throwback-polaroid{width:160px}
 }
 </style>
 </head>
@@ -249,6 +283,10 @@ footer{text-align:center;padding:38px 20px;background:linear-gradient(180deg,#f1
 <main class="main" id="main">
 
 <section class="top">
+<i class="mini-bloom scatter-daisy" style="top:12%;left:8%;opacity:.6;--s:1"></i>
+<i class="mini-daisy scatter-daisy" style="top:20%;right:10%;opacity:.55;--s:.85"></i>
+<i class="mini-daisy scatter-daisy" style="bottom:16%;left:12%;opacity:.55;--s:.8"></i>
+<i class="mini-bloom scatter-daisy" style="bottom:10%;right:8%;opacity:.6;--s:1.05"></i>
 <div class="small">Birlikte yeni bir başlangıç</div>
 <h1 class="serif">Hasret &amp; Alp Emre</h1>
 <p class="sub">Bu özel günümüzde sizleri de aramızda görmekten mutluluk duyarız.</p>
@@ -263,6 +301,7 @@ footer{text-align:center;padding:38px 20px;background:linear-gradient(180deg,#f1
 <section class="section">
 <div class="container">
 <div class="section-head">
+<div class="section-flourish"><i class="mini-daisy"></i><i class="mini-bloom"></i><i class="mini-daisy"></i></div>
 <button class="cal-btn" onclick="addAllToCalendar()" aria-label="Tüm etkinlikleri takvime ekle">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
 Takviminize Not Edin
@@ -280,16 +319,15 @@ Takviminize Not Edin
 </div>
 </article>
 <article class="event">
-<i class="mini-daisy event-daisy"></i>
+<i class="mini-bloom event-daisy"></i>
 <div class="date">26 Eylül 2026</div><div class="time">19:00</div>
 <h3>Gelin Alma</h3><p>Konaklı Köyü Sapağı<br>Düzce</p>
 <div>
 <a class="loc" href="https://maps.app.goo.gl/ArEFV1eK1vLBJ3Em9" target="_blank" rel="noopener">Konumu Gör</a>
-<button class="cal-link" onclick="addSingleToCalendar(1)">Takvime Ekle</button>
 </div>
 </article>
 <article class="event">
-<i class="mini-daisy event-daisy"></i>
+<i class="mini-daisy event-daisy" style="filter:hue-rotate(320deg) saturate(1.4)"></i>
 <div class="date">26 Eylül 2026</div><div class="time">20:00</div>
 <h3>Nikah</h3><p>Royal Park<br>Düzce</p>
 <div>
@@ -304,9 +342,19 @@ Takviminize Not Edin
 <section class="section">
 <div class="container">
 <div class="section-head">
+<div class="section-flourish"><i class="mini-daisy"></i><i class="mini-bloom"></i><i class="mini-daisy"></i></div>
 <div class="small">En güzel anılarımız</div>
 <h2 class="serif">Bize Bir Fotoğraf Bırakın</h2>
 <p>Bu mutlu günümüzü duyduğunuzda ki anlık tepkilerinizi merak ediyoruz.<br>Güzel bir hatıra için bir selfie 💙</p>
+</div>
+<div class="throwback">
+<i class="mini-bloom" style="top:-6px;left:20%;opacity:.7"></i>
+<i class="mini-daisy" style="bottom:6px;right:18%;opacity:.65"></i>
+<div class="throwback-polaroid">
+<div class="throwback-tape"></div>
+<div class="frame"><img src="cocukluk-fotografi.jpg" alt="Hasret ve Alp Emre çocukluk fotoğrafı, gelin damat kostümüyle"></div>
+<div class="throwback-cap">demek ki bu güne çok önceden hazırlanıyormuşuz 🤍</div>
+</div>
 </div>
 <div class="photo-box">
 <div class="qr"><img src="qr-code.png" alt="Fotoğraf paylaşım QR kodu"></div>
@@ -319,6 +367,7 @@ Takviminize Not Edin
 </section>
 
 <section class="rsvp">
+<div class="section-flourish"><i class="mini-bloom"></i><i class="mini-daisy"></i><i class="mini-bloom"></i></div>
 <h2 class="serif">Sizi aramızda görmekten mutluluk duyarız.</h2>
 </section>
 

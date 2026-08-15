@@ -193,23 +193,20 @@ display:grid;grid-template-columns:190px 1fr;gap:34px;align-items:center;
 box-shadow:0 14px 40px rgba(140,154,120,.14);
 }
 
-/* ---------- throwback polaroid ---------- */
-.throwback{display:flex;justify-content:center;margin:0 0 46px;position:relative}
-.throwback-polaroid{
-width:190px;background:#fffdfa;padding:12px 12px 0;box-shadow:0 20px 44px rgba(76,58,42,.22),0 2px 6px rgba(76,58,42,.1);
-transform:rotate(-5deg);position:relative;
+/* ---------- photo section with background photo ---------- */
+.photo-section{
+background-image:
+linear-gradient(180deg, rgba(251,243,234,.93), rgba(251,243,234,.86) 38%, rgba(251,243,234,.95) 82%),
+url('cocukluk-fotografi.jpg');
+background-size:cover;
+background-position:center 18%;
+background-repeat:no-repeat;
 }
-.throwback-polaroid .frame{overflow:hidden;background:#000}
-.throwback-polaroid img{width:100%;display:block;aspect-ratio:784/1371;object-fit:cover;filter:saturate(1.05) sepia(.06)}
-.throwback-cap{
-font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:15px;color:#6b5847;
-text-align:center;padding:12px 4px 16px;line-height:1.3
+.throwback-note{
+display:table;margin:0 auto 34px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;
+font-size:16px;color:#6b5847;background:rgba(255,253,248,.8);padding:9px 24px;border-radius:999px;
+box-shadow:0 8px 22px rgba(76,58,42,.14);border:1px solid rgba(200,168,91,.3);
 }
-.throwback-tape{
-position:absolute;top:-14px;left:50%;transform:translateX(-50%) rotate(-3deg);width:74px;height:26px;
-background:rgba(230,209,139,.55);border:1px solid rgba(200,168,91,.4);box-shadow:0 3px 8px rgba(0,0,0,.08)
-}
-.throwback .mini-daisy,.throwback .mini-bloom{position:absolute}
 .qr{background:#fff;border:1px solid var(--line);padding:10px;width:190px;height:190px}
 .qr img{width:100%;height:100%;display:block}
 .photo-box h3{font:600 36px "Cormorant Garamond";margin:0 0 8px}
@@ -228,7 +225,7 @@ linear-gradient(135deg,#4f473f,#5c4a45 55%,#4a4638);
 .rsvp p{color:#e6d7d1;max-width:520px;margin:0 auto;line-height:1.8;font-size:13px}
 .rsvp .mini-daisy,.rsvp .mini-bloom{display:inline-block;margin:0 4px;vertical-align:middle}
 
-footer{text-align:center;padding:38px 20px;background:linear-gradient(180deg,#f1e3d5,#ecd9c8);color:#8a6c5e;font:500 34px "Cormorant Garamond"}
+footer{text-align:center;padding:38px 20px;background:linear-gradient(180deg,#f1e3d5,#ecd9c8);color:#8a6c5e;font:500 34px "Cormorant Garamond";line-height:1.3}
 
 @media(max-width:760px){
 .cover{padding:12px}.cover-card{min-height:calc(100svh - 24px);padding:55px 18px 40px}
@@ -240,7 +237,7 @@ footer{text-align:center;padding:38px 20px;background:linear-gradient(180deg,#f1
 .tl-item:nth-child(even) .tl-copy,.tl-item:nth-child(odd) .tl-copy{text-align:left}
 .tl-dot{left:12px}
 .photo-box{grid-template-columns:1fr;text-align:center;justify-items:center;padding:22px 16px}
-.throwback-polaroid{width:160px}
+.photo-section{background-position:center 12%}
 }
 </style>
 </head>
@@ -339,7 +336,7 @@ Takviminize Not Edin
 </div>
 </section>
 
-<section class="section">
+<section class="section photo-section">
 <div class="container">
 <div class="section-head">
 <div class="section-flourish"><i class="mini-daisy"></i><i class="mini-bloom"></i><i class="mini-daisy"></i></div>
@@ -347,15 +344,7 @@ Takviminize Not Edin
 <h2 class="serif">Bize Bir Fotoğraf Bırakın</h2>
 <p>Bu mutlu günümüzü duyduğunuzda ki anlık tepkilerinizi merak ediyoruz.<br>Güzel bir hatıra için bir selfie 💙</p>
 </div>
-<div class="throwback">
-<i class="mini-bloom" style="top:-6px;left:20%;opacity:.7"></i>
-<i class="mini-daisy" style="bottom:6px;right:18%;opacity:.65"></i>
-<div class="throwback-polaroid">
-<div class="throwback-tape"></div>
-<div class="frame"><img src="cocukluk-fotografi.jpg" alt="Hasret ve Alp Emre çocukluk fotoğrafı, gelin damat kostümüyle"></div>
-<div class="throwback-cap">demek ki bu güne çok önceden hazırlanıyormuşuz 🤍</div>
-</div>
-</div>
+<div class="throwback-note">demek ki bu güne çok önceden hazırlanıyormuşuz 🤍</div>
 <div class="photo-box">
 <div class="qr"><img src="qr-code.png" alt="Fotoğraf paylaşım QR kodu"></div>
 <div>
@@ -371,7 +360,7 @@ Takviminize Not Edin
 <h2 class="serif">Sizi aramızda görmekten mutluluk duyarız.</h2>
 </section>
 
-<footer class="serif">Sevgiyle, Hasret &amp; Alp Emre ♡</footer>
+<footer class="serif">Sevgiyle..<br>Hasret &amp; Alp Emre ♡</footer>
 </main>
 </div>
 
